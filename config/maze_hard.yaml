@@ -1,0 +1,68 @@
+# QRR -- Maze-Hard (30x30). 
+defaults: [_self_]
+hydra: {output_subdir: null}
+data_paths: [data/maze-30x30-hard-1k-noaug]
+data_paths_test: []
+evaluators: []
+global_batch_size: 768
+epochs: 60000
+eval_interval: 5000
+min_eval_interval: 0
+optimizer: adamw
+lr: 0.0001
+lr_min_ratio: 1.0
+lr_warmup_steps: 2000
+weight_decay: 1.0
+beta1: 0.9
+beta2: 0.95
+grad_clip_norm: 1.0
+puzzle_emb_lr: 0.01
+puzzle_emb_weight_decay: 1.0
+ema: true
+ema_rate: 0.999
+seed: 0
+checkpoint_every_eval: true
+checkpoint_every_n_steps: null
+project_name: qrr-maze-hard
+arch:
+  name: qrr_model@QRRModel
+  loss: {name: losses@ACTLossHead, loss_type: stablemax_cross_entropy, q_loss_coeff: 0.5, deep_supervision: true}
+  hidden_size: 512
+  num_heads: 8
+  L_layers: 2
+  pos_encodings: rope
+  norm_placement: output
+  conv_type: conv1d
+  conv_kernel_size: 4
+  alpha_1_init: 0.75
+  alpha_2_init: 0.25
+  forward_dtype: float32
+  variational_dropout: 0.0
+  puzzle_emb_ndim: 512
+  puzzle_emb_len: 16
+  gauge_trunk: true
+  gauge_xroute_dim: 16
+  gauge_gate_anchors: 4
+  gauge_readout: rich_rms
+  integrator: qso
+  projection_mode: none
+  init_std: 6.0
+  q_den_eps: 1.0e-12
+  q_eps_r: 1.0e-08
+  q_eta0: 1.0
+  q_decay_train: 1.0
+  q_decay_eval: 1.0
+  q_patience: 10
+  q_rthresh: 0.1
+  q_apply_R: true
+  q_beta_H_init: 0.5
+  c1_reduced_state: true
+  c1_c_m: 4.3455
+  max_iter: 24
+  max_iter_eval: 1000
+  max_iter_dist: det
+  n_backwards_L: 6
+  zstep_ckpt: true
+  zstep_ckpt_keep: 4
+  gauge_covstart: false
+  halting_mechanism: fixed_iterations

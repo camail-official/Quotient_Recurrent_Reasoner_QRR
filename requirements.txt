@@ -1,0 +1,15 @@
+# tested with: torch 2.11.0+cu129, triton 3.6.0, python 3.12
+torch>=2.5            # CUDA build; triton kernels (fused z-step, fused norm/residual)
+triton
+numpy
+pydantic>=2
+pyyaml
+hydra-core
+omegaconf
+tqdm
+wandb                 # WANDB_MODE=offline works
+coolname
+adam-atan2-pytorch    # Mini-ARC training optimizer
+numba                 # Mini-ARC evaluator
+argdantic             # dataset builders
+huggingface_hub       # dataset builders (Sudoku-Extreme, Maze-Hard sources)

@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+data/
+raw_data/
+eval_out/
+wandb/
+outputs/
+# released checkpoints are tracked; new training runs (checkpoints/<project>/<run>) are not
+checkpoints/*
+!checkpoints/sudoku/
+!checkpoints/maze_hard/
+!checkpoints/maze_unique/
+!checkpoints/miniarc/
+!checkpoints/SHA256SUMS
