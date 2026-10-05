@@ -1,5 +1,7 @@
 # QRR — Quotient Recurrent Reasoner
 
+The official implementation of the paper "Looped Reasoning Finishes Earlier Than You Think".
+
 Model, training and evaluation code for the four QRR tasks: Sudoku-Extreme, Maze-Hard,
 Maze-Unique and Mini-ARC.
 
