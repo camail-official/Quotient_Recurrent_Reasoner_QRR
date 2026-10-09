@@ -77,9 +77,9 @@ re_defect, cached attention extras, lazy decoding, and bf16 SDPA inputs.
 torchrun --standalone --nproc_per_node=<GPUs> pretrain.py --config-name <task> +run_name=<name>
 ```
 
-| task | config | GPUs used | lr | global batch | released step |
+| task | config | GPUs used | lr | global batch | released / final step |
 |---|---|---|---|---|---|
-| Sudoku-Extreme | `sudoku` | 4 | 3e-4 | 768 | 52,080 |
-| Maze-Hard | `maze_hard` | 4 | 1e-4 | 768 | 32,550 |
-| Maze-Unique | `maze_unique` | 4 | 2e-4 | 384 | 15,624 (final) |
-| Mini-ARC | `miniarc` | 1 | 6e-4 (AdamAtan2) | 768 | 68,620 |
+| Sudoku-Extreme | `sudoku` | 4 | 3e-4 | 768 | 52,080 / 78,120 |
+| Maze-Hard | `maze_hard` | 4 | 1e-4 | 768 | 32,550 / 78,120 |
+| Maze-Unique | `maze_unique` | 4 | 2e-4 | 384 | 15,624 / 15,624 |
+| Mini-ARC | `miniarc` | 1 | 6e-4 (AdamAtan2) | 768 | 68,620 / 68,620 |
